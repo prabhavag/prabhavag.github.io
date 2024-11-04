@@ -1,6 +1,11 @@
+---
+bibliography: content/references.bib
+---
+
 ## Problem
 Given a set of 
 
+[@weng2018flow]
 
 ## Two-loop Solution
 ```python
@@ -97,3 +102,4 @@ def k_means_clustering_oneloop(
         centers = centers_to_labels @ data  # [K, D]
 
 ```
+
