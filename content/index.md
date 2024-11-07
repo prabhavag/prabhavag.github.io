@@ -1,6 +1,6 @@
 ---
 title: Welcome!
-bibliography: references.bib
+bibliography: bibliography.bib
 ---
 
 Hi! This is [Prabhav](https://www.linkedin.com/in/prabhav-agrawal-81468315/). I am a Research Engineer in Meta, and this is my notes page. The content is mostly around different aspect of machine learning research and engineering. Hope, you find it interesting!
@@ -11,4 +11,4 @@ Hi! This is [Prabhav](https://www.linkedin.com/in/prabhav-agrawal-81468315/). I 
   </figcaption>
 </div>
 
-[@weng2018flow]
+

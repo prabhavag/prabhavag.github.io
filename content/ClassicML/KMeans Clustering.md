@@ -1,12 +1,9 @@
----
-bibliography: content/references.bib
----
 
 ## Problem
 Given a set of 
 
 [@weng2018flow]
-
+[@rezende2016variationalinferencenormalizingflows]
 ## Two-loop Solution
 ```python
 # K-Means Clustering
@@ -103,3 +100,4 @@ def k_means_clustering_oneloop(
 
 ```
 
+## References

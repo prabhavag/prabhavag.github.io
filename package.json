@@ -35,6 +35,7 @@
     "quartz": "./quartz/bootstrap-cli.mjs"
   },
   "dependencies": {
+    "@benrbray/remark-cite": "^2.0.1-alpha.4",
     "@clack/prompts": "^0.7.0",
     "@floating-ui/dom": "^1.6.11",
     "@napi-rs/simple-git": "0.1.19",
