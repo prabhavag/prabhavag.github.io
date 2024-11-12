@@ -155,5 +155,7 @@ Check out the [colab notebook](https://colab.research.google.com/drive/1EKSTa5ac
 
 KMeans++
 
+### How to select the value of K
+
 ## References
 
