@@ -22,27 +22,28 @@ The problem is [NP-hard](https://en.wikipedia.org/wiki/NP-hardness) wrt finding 
 ### Proof of Convergence
 **Lemma 1**: The loss function is monotonically non-increasing for both the assignment and update step. [@krause2016]
 **Proof**: Let $l = (l_1, l_2, ..., l_n)$ denotes the cluster assignment for the $n$ points.
-- *Assignment step*: The loss function $L(\mu, l)$ can be written as:
+
+*Assignment step*: The loss function $L(\mu, l)$ can be written as:
 $$
     L(\mu, l) = \sum\limits_{i=1}^{n} \|x_i - \mu_{l_i} \|_2^2
 $$
-    Consider a data point $x_i$ , and let $l_i$ be the assignment from the previous iteration and $z^∗_i$ be the new assignment obtained as:
-    $$
-    l^∗_i \in \arg \min_{j \in {1,...,k}} \|x_i − \mu_j\|_2^2
-    $$
-    Let $l^*$ denote the new cluster assignment, the change in loss function can be written as 
-    $$
-    L(\mu, l^*) - L(\mu, l) = \sum\limits_{i=1}^{n} (\|x_i - \mu_{l^{*}_{i}} \|_2^2 - \|x_i - \mu_{l_i}\|_2^2) \leq 0
-    $$
-    The above inequality holds because $l^*_i$ assigns each $x_i$ to the nearest cluster.
-- *Update step*: The loss function $L(\mu, l)$ can be alternatively written as:
+Consider a data point $x_i$ , and let $l_i$ be the assignment from the previous iteration and $z^∗_i$ be the new assignment obtained as:
+$$
+l^∗_i \in \arg \min_{j \in {1,...,k}} \|x_i − \mu_j\|_2^2
+$$
+Let $l^*$ denote the new cluster assignment, the change in loss function can be written as 
+$$
+L(\mu, l^*) - L(\mu, l) = \sum\limits_{i=1}^{n} (\|x_i - \mu_{l^{*}_{i}} \|_2^2 - \|x_i - \mu_{l_i}\|_2^2) \leq 0
+$$
+The above inequality holds because $l^*_i$ assigns each $x_i$ to the nearest cluster.
+
+*Update step*: The loss function $L(\mu, l)$ can be alternatively written as:
 $$
 L(\mu, l) = \sum\limits_{j=1}^{k}(\sum\limits_{i:l_i=j}\|x_i - \mu_j\|_2^2)
 $$
 For the $j^{th}$ cluster, let's denote the previous centroid as $\mu_j$ and the updated one as $\mu_j^*$ 
 $$
-    \mu_j^* = \frac{1}{|\{i : l_i = j\}|}\sum\limits_{i: l_i = j}x_i
-    
+\mu_j^* = \frac{1}{|\{i : l_i = j\}|}\sum\limits_{i: l_i = j}x_i  
 $$
 Let $\mu^*$ denote the new centroids for all the $k$ clusters, change in loss function is given as:
 $$
@@ -53,15 +54,7 @@ We can verify after taking gradients of $L(\mu, l)$ wrt each $\mu_j$ that $L(\mu
 **Claim**: The K-Means algorithm terminate in finite number of steps.
 1.  If the clustering assignment changes, the newer one will have a lower cost (from Lemma 1)
 2. If the cluster assignment doesn't change, the centroids don't change, and the algorithm terminates.
-Since the number of clusterings is finite and equal to $k^n$, the algorithm will eventually hit condition 2, and then terminate
-
-
-partition 𝑁N data points into 𝑘k clusters; each such partition can be called a "clustering". This is a large but finite number. For each iteration of the algorithm, we produce a new clustering based _only_ on the old clustering. Notice that
-
-1. if the old clustering is the same as the new, then the next clustering will again be the same.
-2. If the new clustering is different from the old then the newer one has a lower cost
-
-Since the algorithm iterates a function whose domain is a finite set, the iteration must eventually enter a cycle. The cycle can not have length greater than 11 because otherwise by (2) you would have some clustering which has a lower cost than itself which is impossible. Hence the cycle must have length exactly 11. Hence k-means converges in a finite number of iterations.
+Since the number of clusterings is finite and equal to $k^n$, the algorithm will eventually hit condition 2, and then terminate.
 ## Implementation (in python using pytorch)
 
 ```python
