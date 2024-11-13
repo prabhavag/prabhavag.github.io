@@ -1,3 +1,6 @@
+---
+tags: kmeans, clustering, unsupervised-learning
+---
 ## Problem
 Given a set of $n$ points $(x_1, x_2, ..., x_n)$ where $x_i \in R^d$, assign the points to $k \leq n$ clusters  such that the following loss function should be minimized. [@wikipedia_kmeans]. Formally, 
 
