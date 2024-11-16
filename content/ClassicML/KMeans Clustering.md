@@ -7,23 +7,24 @@ Given a set of $n$ points $(x_1, x_2, ..., x_n)$ where $x_i \in R^d$, assign the
 $$
 L(\mu) = \sum\limits_{i=1}^{n}\min\limits_{j \in {1,...,k}}\|x_i - c_j\|_2^2
 $$
-## Algorithm (Naive K-Means)
-The problem is [NP-hard](https://en.wikipedia.org/wiki/NP-hardness) wrt finding the centroids which minimize the WCSS, but is approximated in practice using the following iterative refinement technique
+## Algorithm (Naive KMeans)
+The problem is [NP-hard](https://en.wikipedia.org/wiki/NP-hardness) wrt finding the centroids which minimize the WCSS, but is approximated in practice using the following iterative refinement technique in naive KMeans:
 
 - Initialize the $k$ centroids $(\mu_1, \mu_2, ..., \mu_k)$ where $\mu_j \in R^d$ randomly
 - Repeat until convergence or max iterations $I$
     - *Assignment step*: For every point $x_i$, assign cluster label $l_i$ as the cluster with minimum $L^2$ distance:
-        $$
-        l_{i} = \arg\min_{j}\|x_{i} - \mu_j\|_2^2 
-         $$
-    - *Update step: Update centroid $c_j$ as:
+    $$
+    l_{i} = \arg\min_{j}\|x_{i} - \mu_j\|_2^2 
+    $$
+    - *Update step*: Update centroid $c_j$ as:
     $$
     \mu_j = \frac{1}{|\{i : l_i = j\}|}\sum\limits_{i: l_i = j}x_i
     $$
-- Time complexity for the above algorithm is $O(Inkd)$ 
+
+Time complexity for the above algorithm is $O(Inkd)$ 
 
 ### Proof of Convergence
-**Lemma 1**: The loss function is monotonically non-increasing for both the assignment and update step. [@krause2016]
+**Lemma 1**: The loss function is monotonically non-increasing for both the assignment and update step. [@krause2016lis]
 **Proof**: Let $l = (l_1, l_2, ..., l_n)$ denotes the cluster assignment for the $n$ points.
 
 *Assignment step*: The loss function $L(\mu, l)$ can be written as:
@@ -80,16 +81,21 @@ def k_means_clustering_twoloops(
         dist = torch.zeros((data.shape[0], centers.shape[0]))  # (N, K)
         for j in range(data.shape[0]):
             dist_j = torch.sqrt(
-                ((data[j : j + 1] - centers) ** 2).sum(axis=1)
+                ((data[j : j + 1] - centers) ** 2).sum(dim=1)
             )  # (K, )
+            dist_j_sq = ((data[j : j + 1] - centers) ** 2).sum(dim=1) # (K, )
             dist[j, :] = dist_j
 
         labels = torch.argmin(dist, dim=1)  # (N,)
         for j in range(centers.shape[0]):
-            centers[j] = torch.mean(data[labels == j, :], dim=0)
+            points_in_cluster = data[labels == j, :]
+            if points_in_cluster.shape[0] > 0:
+                centers[j] = torch.mean(points_in_cluster, dim=0)
+            else:
+                # No point assigned to this cluster, pick a data point arbitraily as center
+                centers[j] = data[torch.randint(0, data.shape[0], (1,)), :]
 
     return centers, labels
-
 
 # One-loop solution
 def k_means_clustering_oneloop(
@@ -111,23 +117,35 @@ def k_means_clustering_oneloop(
         )  # [N, K]
         labels = torch.argmin(dist, dim=1)  # [N]
 
-        # create [K, N] matrix M which has M(i, j) = 1 if point j belongs to
-        # cluster i, zero otherwise
+        # create [K, N] matrix M which has M(i, j) = 1 if point j belongs to cluster i, zero otherwise
         centers_to_labels = torch.zeros_like(dist).T  # [K, N]
         centers_to_labels[labels, torch.arange(N)] = 1
         centers_to_labels = centers_to_labels / torch.max(
             torch.sum(centers_to_labels, dim=1), torch.tensor(1e-12)
         ).unsqueeze(1)
         centers = centers_to_labels @ data  # [K, D]
+
+        # Reinitialize the centers which didn't get a point based on random rows from data
+        # Identify rows in centers that are all zeros
+        zero_rows_mask = (centers == 0.0).all(dim=1)  # Boolean mask for zero rows in centers
+
+        # Count how many rows are zero
+        num_zero_rows = zero_rows_mask.sum().item()
+        random_indices = torch.randint(0, data.shape[0], (num_zero_rows,))
+        random_rows_from_data = data[random_indices]  # Select random rows
+
+        # Replace zero rows in centers with the selected rows from data
+        centers[zero_rows_mask] = random_rows_from_data
     return centers, labels
+
 ```
 
 
-![[kmeans_before.png]]
+![[images/kmeans_before.png|this is the caption]]
 
 
-![[kmeans_after.png]]
 
+![[images/kmeans_after.png|hello]]
 ### Run-time comparison
 
 ```python
@@ -152,13 +170,18 @@ Time taken for one-loop k-means: 0.246190 seconds
 Single time version is $\sim 8.5$ faster than the two-loops version for a small datasets of 100 2-dim points with 10 iterations
 
 Check out the [colab notebook](https://colab.research.google.com/drive/1EKSTa5acLJaR3KMo2CRNZgDWK98W0eTp#scrollTo=wL_sS6g1HK93) for more details.
-## Further Improvements
 
-### Improved Initialization of Centroids
+## Improved Initialization of Centroids with KMeans++
 
-KMeans++
+Naive KMeans initializes the centroids randomly, which could lead to convergence to bad local optimum. KMeans++ 
 
-### How to select the value of K
+![[kmeans_poor_example.png]]
+
+Choose an initial center c1 uniformly at random from X . 1b. Choose the next center ci , selecting ci = x 0 ∈ X with probability D(x 0 ) 2 P x∈X D(x) 2 . 1c. Repeat Step 1b until we have chosen a total of k centers. 2-4. Proceed as with the standard k-means algorithm
+
+## How to select the value of K
 
 ## References
 
+https://neptune.ai/blog/k-means-clustering
+https://www.geeksforgeeks.org/ml-k-means-algorithm/
