@@ -2,16 +2,16 @@
 tags: kmeans, clustering, unsupervised-learning
 ---
 ## Problem
-Given a set of $n$ points $(x_1, x_2, ..., x_n)$ where $x_i \in R^d$, assign the points to $k \leq n$ clusters  such that the following loss function should be minimized. [@wikipedia_kmeans]. Formally, 
+Given a set of $n$ points $X = (x_1, x_2, ..., x_n)$ where $x_i \in R^d$, assign the points to $k \leq n$ clusters  such that the following loss function should be minimized. [@wikipedia_kmeans]. Formally, 
 
 $$
-L(\mu) = \sum\limits_{i=1}^{n}\min\limits_{j \in {1,...,k}}\|x_i - c_j\|_2^2
+L(\mu) = \sum\limits_{i=1}^{n}\min\limits_{j \in {1,...,k}}\|x_i - \mu_j\|_2^2
 $$
 ## Algorithm (Naive KMeans)
 The problem is [NP-hard](https://en.wikipedia.org/wiki/NP-hardness) wrt finding the centroids which minimize the WCSS, but is approximated in practice using the following iterative refinement technique in naive KMeans:
 
-- Initialize the $k$ centroids $(\mu_1, \mu_2, ..., \mu_k)$ where $\mu_j \in R^d$ randomly
-- Repeat until convergence or max iterations $I$
+1. Initialize the $k$ centroids $(\mu_1, \mu_2, ..., \mu_k)$ where $\mu_j \in R^d$ randomly
+2. Repeat until convergence or max iterations $I$
     - *Assignment step*: For every point $x_i$, assign cluster label $l_i$ as the cluster with minimum $L^2$ distance:
     $$
     l_{i} = \arg\min_{j}\|x_{i} - \mu_j\|_2^2 
@@ -21,6 +21,7 @@ The problem is [NP-hard](https://en.wikipedia.org/wiki/NP-hardness) wrt finding 
     \mu_j = \frac{1}{|\{i : l_i = j\}|}\sum\limits_{i: l_i = j}x_i
     $$
 
+    - *Empty Cluster Handling*: Check for clusters with zero assigned points and re-initialize them randomly using data points
 Time complexity for the above algorithm is $O(Inkd)$ 
 
 ### Proof of Convergence
@@ -110,6 +111,7 @@ def k_means_clustering_oneloop(
     """
     N, _ = data.shape
     for i in range(max_iterations):
+        # Alternatively torch.cdist API can be used
         dist = torch.sqrt(
             torch.sum(data**2, dim=1).unsqueeze(1)
             + torch.sum(centers**2, dim=1).unsqueeze(0)
@@ -140,12 +142,22 @@ def k_means_clustering_oneloop(
 
 ```
 
+### Clustering Example
+<div style="text-align: center;" >
+  <img src="assets/kmeans_before.png" width="50%">
+  <figcaption> Fig 1. Data Points
+  </figcaption>
+</div>
 
-![[images/kmeans_before.png|this is the caption]]
 
 
+<div style="text-align: center;" >
+  <img src="assets/kmeans_after.png" width="50%">
+  <figcaption>Fig 2. KMeans Clustering - One Loop After 100 Iterations
+  </figcaption>
+</div>
 
-![[images/kmeans_after.png|hello]]
+
 ### Run-time comparison
 
 ```python
@@ -164,24 +176,68 @@ time_one_loop = timeit.timeit(
 print(f"Time taken for one-loop k-means: {time_one_loop:.6f} seconds")
 ```
 
-Time taken for two-loop k-means: 2.066990 seconds
-Time taken for one-loop k-means: 0.246190 seconds
+Time taken for two-loop k-means: 41.656580 seconds 
+Time taken for one-loop k-means: 0.507115 seconds
 
-Single time version is $\sim 8.5$ faster than the two-loops version for a small datasets of 100 2-dim points with 10 iterations
-
-Check out the [colab notebook](https://colab.research.google.com/drive/1EKSTa5acLJaR3KMo2CRNZgDWK98W0eTp#scrollTo=wL_sS6g1HK93) for more details.
-
+Single time version is $\sim 85$ faster than the two-loops version for a small datasets of 100 2-dim points with 10 iterations
 ## Improved Initialization of Centroids with KMeans++
 
-Naive KMeans initializes the centroids randomly, which could lead to convergence to bad local optimum. KMeans++ 
+Naive KMeans initializes the centroids randomly, which could lead to convergence to bad local optimum. Here is an example below:
 
-![[kmeans_poor_example.png]]
+<div style="text-align: center;" >
+  <img src="assets/kmeans_poor_example.png" width="50%">
+  <figcaption>Poor clustering example due to bad initialization of centroids
+  </figcaption>
+</div>
 
-Choose an initial center c1 uniformly at random from X . 1b. Choose the next center ci , selecting ci = x 0 ∈ X with probability D(x 0 ) 2 P x∈X D(x) 2 . 1c. Repeat Step 1b until we have chosen a total of k centers. 2-4. Proceed as with the standard k-means algorithm
+K-Means++ aims to solve the initialization problem, while providing $\Theta(log k)$-competitive accuracy guarantees. The intuition is to select the initial centers which are further apart from each other. The authors provide preliminary resulting demonstrating that KMeans++ leads to both improvements in speed and accuracy in practice. [@arthur2007kmeans].  The algorithm works as follows:
 
-## How to select the value of K
+1. Choose an initial center $\mu_1$ uniformly at random from $X$. 
+2. Choose the next center $\mu_i$ , selecting $\mu_i = x' \in X$ with probability $\frac{D(x')^2} {\sum\limits_{x \in X} D(x)^2}$, where  $D(x)$ denote the shortest distance from a data point $x'$ to the closest center we have already chosen.
+3. Repeat Step 2. until we have chosen a total of k centers. 
+4. Proceed as with the standard k-means algorithm.
 
+```python
+import torch
+
+def kmeans_pp_initialization(data: torch.Tensor, num_clusters: int) -> torch.Tensor:
+    """
+    Performs k-means++ initialization.
+
+    Args:
+        data: The data points to be clustered [N, D].
+        num_clusters: The desired number of clusters (K).
+
+    Returns:
+        A tensor of initial cluster centers [K, D].
+    """
+    n_samples = data.shape[0]
+    centers = torch.zeros(num_clusters, data.shape[1], dtype=data.dtype)
+    # Choose the first center randomly from the data points
+    centers[0] = data[torch.randint(0, n_samples, (1,))]
+
+    for i in range(1, num_clusters):
+      distances = torch.min(torch.cdist(data, centers[:i]), dim=1)[0] # [N]
+      probabilities = distances / torch.sum(distances)
+      cumulative_probabilities = torch.cumsum(probabilities, dim=0) # [N]
+
+      # Generate random number
+      rand_val = torch.rand(1)
+
+      # Find the index of the next center based on cumulative probabilities
+      next_center_index = torch.searchsorted(cumulative_probabilities, rand_val)
+      centers[i] = data[next_center_index]
+
+    return centers
+```
+
+Check out the [colab notebook](https://colab.research.google.com/drive/1EKSTa5acLJaR3KMo2CRNZgDWK98W0eTp#scrollTo=wL_sS6g1HK93) for all the code pointers and plots.
+## How to select the number of clusters
+There are several heuristics to identify the number of clusters $K$ based on Elbow Method, Silhouette Score, cross-validation or Dunn index, either using the KMeans loss $L(\mu)$ or other good of fitness metrics. [@neptune_kmeans]
+
+##  Further Readings
+[Dasgupta Kmeans Handout](https://cseweb.ucsd.edu/~dasgupta/291-geom/kmeans.pdf)
+[GeeksForGeeks KMeans](https://www.geeksforgeeks.org/ml-k-means-algorithm/)
+[Elkan Kmeans - Speed up using triangle inequality](https://cdn.aaai.org/ICML/2003/ICML03-022.pdf)
+[Stanford CS221 KMeans Handout - KMeans Compared with EM Algorithm](https://stanford.edu/~cpiech/cs221/handouts/kmeans.html)
 ## References
-
-https://neptune.ai/blog/k-means-clustering
-https://www.geeksforgeeks.org/ml-k-means-algorithm/
