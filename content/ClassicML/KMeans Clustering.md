@@ -236,8 +236,8 @@ Check out the [colab notebook](https://colab.research.google.com/drive/1EKSTa5ac
 There are several heuristics to identify the number of clusters $K$ based on Elbow Method, Silhouette Score, cross-validation or Dunn index, either using the KMeans loss $L(\mu)$ or other good of fitness metrics. [@neptune_kmeans]
 
 ##  Further Readings
-[Dasgupta Kmeans Handout](https://cseweb.ucsd.edu/~dasgupta/291-geom/kmeans.pdf)
-[GeeksForGeeks KMeans](https://www.geeksforgeeks.org/ml-k-means-algorithm/)
-[Elkan Kmeans - Speed up using triangle inequality](https://cdn.aaai.org/ICML/2003/ICML03-022.pdf)
-[Stanford CS221 KMeans Handout - KMeans Compared with EM Algorithm](https://stanford.edu/~cpiech/cs221/handouts/kmeans.html)
+- [Dasgupta Kmeans Handout](https://cseweb.ucsd.edu/~dasgupta/291-geom/kmeans.pdf)
+- [GeeksForGeeks KMeans](https://www.geeksforgeeks.org/ml-k-means-algorithm/)
+- [Elkan Kmeans - Speed up using triangle inequality](https://cdn.aaai.org/ICML/2003/ICML03-022.pdf)
+- [Stanford CS221 KMeans Handout - KMeans Compared with EM Algorithm](https://stanford.edu/~cpiech/cs221/handouts/kmeans.html)
 ## References
