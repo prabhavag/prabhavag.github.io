@@ -37,7 +37,7 @@
 
 ##  Recent Papers
 
-### Neural Codecs
+### Neural Audio Codecs
 - [Mimi Codec from Moshi](https://kyutai.org/Moshi.pdf)
 - [High-Fidelity Audio Compression with Improved RVQGAN - DAC](https://arxiv.org/abs/2306.06546)
 - [SoundStream: An End-to-End Neural Audio Codec](https://arxiv.org/abs/2107.03312)
