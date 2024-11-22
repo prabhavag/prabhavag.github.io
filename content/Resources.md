@@ -17,6 +17,8 @@
 
 # Signal Processing
 
+[Discrete-Time Signal Processing - Oppenheim & Schafer](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)
+[Introduction to Digital Audio Coding and Standards](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)
 [Spectral Audio Processing](https://ccrma.stanford.edu/~jos/sasp/)
 
 # Speech Processing
