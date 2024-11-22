@@ -73,6 +73,9 @@
 - [WaveRNN: Efficient Neural Audio Synthesis](https://arxiv.org/abs/1802.08435)
 - [WaveNet: A Generative Model for Raw Audio](https://arxiv.org/abs/1609.03499)
 
+#### Differential DSP Based
+- [Ultra-lightweight Neural Differential DSP Vocoder For High Quality Speech Synthesis](https://arxiv.org/abs/2401.10460)
+
 ### Classical UnitSelection Based TTS
 
 - [Deep Learning for Siri’s Voice: On-device Deep Mixture Density Networks for Hybrid Unit Selection Synthesis](https://machinelearning.apple.com/research/siri-voices#1)  
