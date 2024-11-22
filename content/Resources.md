@@ -2,25 +2,25 @@
 # LLM
 
 ## Practical Guides
-[Machine Learning Engineering Open Book](https://github.com/stas00/ml-engineering#machine-learning-engineering-open-book)]
+- [Machine Learning Engineering Open Book](https://github.com/stas00/ml-engineering#machine-learning-engineering-open-book)]
 
 ## Multimodalilty
 ### Text-Audio
-[Moshi: a speech-text foundation model for real-time dialogue](https://kyutai.org/Moshi.pdf)
-[Spirit LM: Interleaved Spoken and Written Language Model](https://arxiv.org/abs/2402.05755)
-[Hertz Dev](https://github.com/Standard-Intelligence/hertz-dev)
+- [Moshi: a speech-text foundation model for real-time dialogue](https://kyutai.org/Moshi.pdf)
+- [Spirit LM: Interleaved Spoken and Written Language Model](https://arxiv.org/abs/2402.05755)
+- [Hertz Dev](https://github.com/Standard-Intelligence/hertz-dev)
 
 
 # Diffusion
-[Understanding Diffusion Models: A Unified Perspective](https://arxiv.org/abs/2208.11970)
+- [Understanding Diffusion Models: A Unified Perspective](https://arxiv.org/abs/2208.11970)
 
 
 
 # Signal Processing
 
-[Discrete-Time Signal Processing - Oppenheim & Schafer](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)  
-[Introduction to Digital Audio Coding and Standards](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)  
-[Spectral Audio Processing](https://ccrma.stanford.edu/~jos/sasp/) 
+- [Discrete-Time Signal Processing - Oppenheim & Schafer](assets/Discrete-TimeSignalProcessing-Oppenheim.pdf)  
+- [Introduction to Digital Audio Coding and Standards](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)  
+- [Spectral Audio Processing](https://ccrma.stanford.edu/~jos/sasp/) 
 
 # Speech Processing
 - [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/)   
@@ -87,4 +87,4 @@
 
 
 # Classic ML
-[Stripe'.  Eng Blog on Fraud Detection ](https://stripe.com/guides/primer-on-machine-learning-for-fraud-protection)
+[Stripe's  Eng Blog on Fraud Detection](https://stripe.com/guides/primer-on-machine-learning-for-fraud-protection)
