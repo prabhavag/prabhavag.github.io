@@ -17,28 +17,26 @@
 
 # Signal Processing
 
-[Discrete-Time Signal Processing - Oppenheim & Schafer](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)
-[Introduction to Digital Audio Coding and Standards](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)
-[Spectral Audio Processing](https://ccrma.stanford.edu/~jos/sasp/)
+[Discrete-Time Signal Processing - Oppenheim & Schafer](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)  
+[Introduction to Digital Audio Coding and Standards](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)  
+[Spectral Audio Processing](https://ccrma.stanford.edu/~jos/sasp/) 
 
 # Speech Processing
 ## Books/Courses
-[Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/)
-[Speech Processing Book - Aalto University](https://speechprocessingbook.aalto.fi/)
-[Edinborough's Speech Zone Courses](https://speech.zone/courses/)
+[Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/)   
+[Speech Processing Book - Aalto. University](https://speechprocessingbook.aalto.fi/) 
+[Edinborough's Speech Zone Courses](https://speech.zone/courses/) 
 
 ## Text-to-speech
-
-### Posts
-[MFCC Extraction - Practical Cryptography](http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/)
-[Deep Learning for Siri’s Voice: On-device Deep Mixture Density Networks for Hybrid Unit Selection Synthesis](https://machinelearning.apple.com/research/siri-voices#1)
+[MFCC Extraction - Practical Cryptography](http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/)  
+[Deep Learning for Siri’s Voice: On-device Deep Mixture Density Networks for Hybrid Unit Selection Synthesis](https://machinelearning.apple.com/research/siri-voices#1)  
 
 ### Github Repos
-[BigVGAN Repo](https://github.com/NVIDIA/BigVGAN)
-[Kan Bayashi's Vocoder Repo](https://github.com/kan-bayashi/ParallelWaveGAN)
-[Nvidia Tacotron2 Github](https://github.com/NVIDIA/tacotron2)
+[BigVGAN Repo](https://github.com/NVIDIA/BigVGAN)  
+[Kan Bayashi's Vocoder R. po](https://github.com/kan-bayashi/ParallelWaveGAN)  
+[Nvidia Tacotron2 Github](https://github.com/NVIDIA/tacotron2) 
 
 
 
 # Classic ML
-[Stripe's Eng Blog on Fraud Detection ](https://stripe.com/guides/primer-on-machine-learning-for-fraud-protection)
+[Stripe'.  Eng Blog on Fraud Detection ](https://stripe.com/guides/primer-on-machine-learning-for-fraud-protection)
