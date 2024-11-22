@@ -54,7 +54,7 @@
 - [E2 TTS: Embarrassingly Easy Fully Non-Autoregressive Zero-Shot TTS](https://arxiv.org/abs/2406.18009)
 #### Regression Based
 - [FastSpeech 2: Fast and High-Quality End-to-End Text to Speech](https://arxiv.org/abs/2006.04558)
-- [Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions](https://arxiv.org/abs/1712.05884)
+- [Tacotron 2: Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions](https://arxiv.org/abs/1712.05884)
 ### Vocoders
 #### Non-Autoregressive GAN Based
 - [BigVGAN: A Universal Neural Vocoder with Large-Scale Training](https://openreview.net/forum?id=iTtGCMDEzS_)
