@@ -39,9 +39,9 @@
 
 ### Neural Audio Codecs
 - [Mimi Codec from Moshi](https://kyutai.org/Moshi.pdf)
-- [High-Fidelity Audio Compression with Improved RVQGAN - DAC](https://arxiv.org/abs/2306.06546)
+- [Descript Audio Codec: High-Fidelity Audio Compression with Improved RVQGAN](https://arxiv.org/abs/2306.06546)
 - [SoundStream: An End-to-End Neural Audio Codec](https://arxiv.org/abs/2107.03312)
-- [High Fidelity Neural Audio Compression - Encodec](https://arxiv.org/abs/2210.13438)
+- [Encodec: High Fidelity Neural Audio Compression](https://arxiv.org/abs/2210.13438)
 
 ### Acoustic Models
 #### LM Based
@@ -70,7 +70,7 @@
  - [Parallel WaveNet: Fast High-Fidelity Speech Synthesis](https://arxiv.org/abs/1711.10433)
  
 #### Autoregressive
-- [Efficient Neural Audio Synthesis](https://arxiv.org/abs/1802.08435)
+- [WaveRNN: Efficient Neural Audio Synthesis](https://arxiv.org/abs/1802.08435)
 - [WaveNet: A Generative Model for Raw Audio](https://arxiv.org/abs/1609.03499)
 
 ### Classical UnitSelection Based TTS
