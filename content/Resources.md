@@ -3,46 +3,42 @@
 
 ## Practical Guides
 - [Machine Learning Engineering Open Book](https://github.com/stas00/ml-engineering#machine-learning-engineering-open-book)]
-
 ## Multimodalilty
 ### Text-Audio
 - [Moshi: a speech-text foundation model for real-time dialogue](https://kyutai.org/Moshi.pdf)
 - [Spirit LM: Interleaved Spoken and Written Language Model](https://arxiv.org/abs/2402.05755)
 - [Hertz Dev](https://github.com/Standard-Intelligence/hertz-dev)
-
-
 # Diffusion
 - [Understanding Diffusion Models: A Unified Perspective](https://arxiv.org/abs/2208.11970)
-
-
-
 # Signal Processing
 
 - [Discrete-Time Signal Processing - Oppenheim & Schafer](assets/Discrete-TimeSignalProcessing-Oppenheim.pdf)  
 - [Introduction to Digital Audio Coding and Standards](assets/introduction-to-digital-audio-coding-and-standards_compress.pdf)  
 - [Spectral Audio Processing](https://ccrma.stanford.edu/~jos/sasp/) 
-
 # Speech Processing
+## Books
 - [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/)   
 - [Speech Processing Book - Aalto. University](https://speechprocessingbook.aalto.fi/) 
 - [Edinborough's Speech Zone Courses](https://speech.zone/courses/) 
-
 # Speech Recognition
 
-
-
-# Text-to-speech
+## Courses/Talks
+- [CMU Speech Recognition - Shinji's course](https://www.wavlab.org/activities/2022/11751-2022f/)
+- [Recent Advances in End-to-End Automatic Speech Recognition - Jinyu Li's Talk](https://www.youtube.com/watch?v=YH2BMIIZT80&ab_channel=Chao-HanHuckYang)
+##  Recent Papers
+- [Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks](https://www.cs.toronto.edu/~graves/icml_2006.pdf)
+- [Sequence Transduction with Recurrent Neural Networks - RNNT](https://arxiv.org/abs/1211.3711)
+- [Listen, Attend and Spell](https://arxiv.org/abs/1508.01211)
+- [Conformer: Convolution-augmented Transformer for Speech Recognition](https://arxiv.org/abs/2005.08100)
+# Text-to-speech (TTS)
 
 [MFCC Extraction - Practical Cryptography](http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/)  
-
 ##  Recent Papers
-
 ### Neural Audio Codecs
-- [Mimi Codec from Moshi](https://kyutai.org/Moshi.pdf)
+- [Mimi Codec from Moshi](https://arxiv.org/abs/2410.00037)
 - [Descript Audio Codec: High-Fidelity Audio Compression with Improved RVQGAN](https://arxiv.org/abs/2306.06546)
 - [SoundStream: An End-to-End Neural Audio Codec](https://arxiv.org/abs/2107.03312)
 - [Encodec: High Fidelity Neural Audio Compression](https://arxiv.org/abs/2210.13438)
-
 ### Acoustic Models
 #### LM Based
 - [Speak, Read and Prompt: High-Fidelity Text-to-Speech with Minimal Supervision](https://arxiv.org/abs/2302.03540)  
@@ -83,8 +79,5 @@
 - [BigVGAN Repo](https://github.com/NVIDIA/BigVGAN)  
 - [Kan Bayashi's Vocoder R. po](https://github.com/kan-bayashi/ParallelWaveGAN)  
 - [Nvidia Tacotron2 Github](https://github.com/NVIDIA/tacotron2) 
-
-
-
 # Classic ML
 [Stripe's  Eng Blog on Fraud Detection](https://stripe.com/guides/primer-on-machine-learning-for-fraud-protection)
