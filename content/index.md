@@ -12,3 +12,5 @@ Hi! This is [Prabhav](https://www.linkedin.com/in/prabhav-agrawal-81468315/). I 
 </div>
 
 
+Here are the finished ones:
+- [Yet Another KMeans Post](<ClassicML/KMeans Clustering.md>)
