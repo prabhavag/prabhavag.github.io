@@ -13,5 +13,5 @@ Hi! This is [Prabhav](https://www.linkedin.com/in/prabhav-agrawal-81468315/). I 
 
 
 Here are the finished ones:
-- [Yet Another KMeans Post](<ClassicML/KMeans Clustering.md>)
-- [Vector Quantization](<Vector Quantization.md>)
+- [Yet Another KMeans Post](<ClassicML/KMeans_Clustering.md>)
+- [Vector Quantization](<Vector_Quantization.md>)

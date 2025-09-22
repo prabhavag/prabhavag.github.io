@@ -1,3 +1,7 @@
+---
+title: "Classifier Metrics"
+---
+
 The metrics used for evaluating machine learning systems are based on the task and the domain. 
 
 ## Classification

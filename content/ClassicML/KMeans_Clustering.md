@@ -1,6 +1,13 @@
 ---
-tags: kmeans, clustering, unsupervised-learning
+title: "KMeans Clustering"
+date: 2024-12-18
+tags: 
+  - kmeans
+  - clustering
+  - unsupervised-learning
+draft: false
 ---
+
 ## Problem
 Given a set of $n$ points $X = (x_1, x_2, ..., x_n)$ where $x_i \in R^d$, assign the points to $k \leq n$ clusters  such that the following loss function should be minimized. [@wikipedia_kmeans]. Formally, 
 
@@ -61,6 +68,9 @@ We can verify after taking gradients of $L(\mu, l)$ wrt each $\mu_j$ that $L(\mu
 2. If the cluster assignment doesn't change, the centroids don't change, and the algorithm terminates.
 Since the number of clusterings is finite and equal to $k^n$, the algorithm will eventually hit condition 2, and then terminate.
 ## Implementation (in python using pytorch)
+
+<details>
+<summary style="color: #284b63; font-weight: bold;">Show the code</summary>
 
 ```python
 import torch
@@ -139,8 +149,9 @@ def k_means_clustering_oneloop(
         # Replace zero rows in centers with the selected rows from data
         centers[zero_rows_mask] = random_rows_from_data
     return centers, labels
-
 ```
+
+</details>
 
 ### Clustering Example
 <div style="text-align: center;" >
@@ -160,6 +171,9 @@ def k_means_clustering_oneloop(
 
 ### Run-time comparison
 
+<details>
+<summary style="color: #284b63; font-weight: bold;">Show the code</summary>
+
 ```python
 import timeit
 
@@ -175,6 +189,8 @@ time_one_loop = timeit.timeit(
 )
 print(f"Time taken for one-loop k-means: {time_one_loop:.6f} seconds")
 ```
+
+</details>
 
 Time taken for two-loop k-means: 41.656580 seconds 
 Time taken for one-loop k-means: 0.507115 seconds
@@ -196,6 +212,9 @@ K-Means++ aims to solve the initialization problem, while providing $\Theta(log 
 2. Choose the next center $\mu_i$ , selecting $\mu_i = x' \in X$ with probability $\frac{D(x')^2} {\sum\limits_{x \in X} D(x)^2}$, where  $D(x)$ denote the shortest distance from a data point $x'$ to the closest center we have already chosen.
 3. Repeat Step 2. until we have chosen a total of k centers. 
 4. Proceed as with the standard k-means algorithm.
+
+<details>
+<summary style="color: #284b63; font-weight: bold;">Show the code</summary>
 
 ```python
 import torch
@@ -230,6 +249,8 @@ def kmeans_pp_initialization(data: torch.Tensor, num_clusters: int) -> torch.Ten
 
     return centers
 ```
+
+</details>
 
 Check out the [colab notebook](https://colab.research.google.com/drive/1EKSTa5acLJaR3KMo2CRNZgDWK98W0eTp#scrollTo=wL_sS6g1HK93) for all the code pointers and plots.
 ## How to select the number of clusters
