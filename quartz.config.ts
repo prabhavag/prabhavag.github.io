@@ -74,6 +74,7 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
       Plugin.Citations({bibliographyFile: "content/bibliography.bib", linkCitations: true}),
+      Plugin.BlogPreview({ excerptLength: 150 }),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [

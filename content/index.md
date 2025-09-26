@@ -15,60 +15,106 @@ Hi! This is [Prabhav](https://www.linkedin.com/in/prabhav-agrawal-81468315/). I 
 Finished blog posts:
 
 <style>
+.blog-preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.blog-preview-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
 .blog-preview {
   border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px 0;
+  border-radius: 12px;
+  padding: 24px;
   background-color: #faf8f8;
-  transition: box-shadow 0.3s ease;
-  max-width: 600px;
+  transition: all 0.3s ease;
+  max-width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-preview h3 a[role="anchor"] {
+  pointer-events: none !important;
+  text-decoration: none !important;
 }
 
 .blog-preview:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  border-color: #284b63;
+  z-index: 10;
+  background-color: #faf8f8;
 }
 
 .blog-preview h3 {
-  margin: 0 0 10px 0;
+  margin: 0 0 4px 0 !important;
   color: #284b63;
-  font-size: 1.4em;
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.blog-preview:hover h3 {
+  color: #1a3a4a;
 }
 
 .blog-preview .meta {
   color: #646464;
   font-size: 0.9em;
-  margin-bottom: 15px;
+  margin-bottom: 8px !important;
   display: flex;
-  gap: 15px;
+  gap: 16px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.blog-preview .meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .blog-preview .excerpt {
   color: #2b2b2b;
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin-bottom: 0;
+  font-size: 1em;
 }
 
-.blog-preview .read-more {
-  color: #284b63;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9em;
-}
-
-.blog-preview .read-more:hover {
-  text-decoration: underline;
-}
 
 @media (prefers-color-scheme: dark) {
   .blog-preview {
     background-color: #161618;
     border-color: #393639;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .blog-preview:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border-color: #7b97aa;
+    z-index: 10;
+    background-color: #161618;
   }
   
   .blog-preview h3 {
     color: #7b97aa;
+  }
+  
+  .blog-preview:hover h3 {
+    color: #9bb3c6;
   }
   
   .blog-preview .meta {
@@ -79,47 +125,21 @@ Finished blog posts:
     color: #ebebec;
   }
   
-  .blog-preview .read-more {
-    color: #7b97aa;
+}
+
+@media (max-width: 768px) {
+  .blog-preview {
+    padding: 20px;
+  }
+  
+  .blog-preview .meta {
+    gap: 12px;
+  }
+  
+  .blog-preview h3 {
+    font-size: 1.3em;
   }
 }
 </style>
 
-<div class="blog-preview">
-  <h3><a href="ClassicML/KMeans_Clustering.md" style="text-decoration: none; color: inherit;">KMeans Clustering</a></h3>
-  <div class="meta">
-    <span>📅 Dec 18, 2024</span>
-    <span>⏱️ ~8 min read</span>
-    <span>🏷️ kmeans, clustering, unsupervised-learning</span>
-  </div>
-  <div class="excerpt">
-    Given a set of n points, assign them to k clusters such that the loss function is minimized. This post explores the theoretical foundations, algorithms, and practical implementations of KMeans clustering, including both naive and optimized approaches.
-  </div>
-  <a href="ClassicML/KMeans_Clustering.md" class="read-more">Read more →</a>
-</div>
-
-<div class="blog-preview">
-  <h3><a href="Quantization/Vector_Quantization.md" style="text-decoration: none; color: inherit;">Vector Quantization</a></h3>
-  <div class="meta">
-    <span>📅 Dec 18, 2024</span>
-    <span>⏱️ ~6 min read</span>
-    <span>🏷️ quantization, signal-processing, compression</span>
-  </div>
-  <div class="excerpt">
-    Vector quantization is a fundamental technique in signal processing and data compression that extends scalar quantization to multi-dimensional spaces. This post explores the theoretical foundations, algorithms, and practical applications.
-  </div>
-  <a href="Quantization/Vector_Quantization.md" class="read-more">Read more →</a>
-</div>
-
-<div class="blog-preview">
-  <h3><a href="ClassicML/Classifier_Metrics.md" style="text-decoration: none; color: inherit;">Classifier Metrics</a></h3>
-  <div class="meta">
-    <span>📅 Recent</span>
-    <span>⏱️ ~2 min read</span>
-    <span>🏷️ metrics, classification, evaluation</span>
-  </div>
-  <div class="excerpt">
-    The metrics used for evaluating machine learning systems are based on the task and domain. This post covers classification metrics including accuracy, precision, recall, and F1-score for binary and multi-class classification tasks.
-  </div>
-  <a href="ClassicML/Classifier_Metrics.md" class="read-more">Read more →</a>
-</div>
+{{blog-preview:Quantization/Vector Quantization.md,ClassicML/KMeans Clustering.md}}

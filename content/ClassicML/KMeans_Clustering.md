@@ -8,6 +8,8 @@ tags:
 draft: false
 ---
 
+KMeans clustering is one of the most fundamental and widely-used unsupervised learning algorithms for partitioning data into distinct groups. This post explores the mathematical foundation, implementation details, and practical considerations of this classic clustering technique.
+
 ## Problem
 Given a set of $n$ points $X = (x_1, x_2, ..., x_n)$ where $x_i \in R^d$, assign the points to $k \leq n$ clusters  such that the following loss function should be minimized. [@wikipedia_kmeans]. Formally, 
 
@@ -70,7 +72,7 @@ Since the number of clusterings is finite and equal to $k^n$, the algorithm will
 ## Implementation (in python using pytorch)
 
 <details>
-<summary style="color: #284b63; font-weight: bold;">Show the code</summary>
+<summary style="color: #284b63; font-weight: bold;">Show me the code</summary>
 
 ```python
 import torch
@@ -172,7 +174,7 @@ def k_means_clustering_oneloop(
 ### Run-time comparison
 
 <details>
-<summary style="color: #284b63; font-weight: bold;">Show the code</summary>
+<summary style="color: #284b63; font-weight: bold;">Show me the code</summary>
 
 ```python
 import timeit
@@ -202,7 +204,7 @@ Naive KMeans initializes the centroids randomly, which could lead to convergence
 
 <div style="text-align: center;" >
   <img src="assets/kmeans_poor_example.png" width="50%">
-  <figcaption>Poor clustering example due to bad initialization of centroids
+  <figcaption>Fig 3. Poor clustering example due to bad initialization of centroids
   </figcaption>
 </div>
 
@@ -214,7 +216,7 @@ K-Means++ aims to solve the initialization problem, while providing $\Theta(log 
 4. Proceed as with the standard k-means algorithm.
 
 <details>
-<summary style="color: #284b63; font-weight: bold;">Show the code</summary>
+<summary style="color: #284b63; font-weight: bold;">Show me the code</summary>
 
 ```python
 import torch
