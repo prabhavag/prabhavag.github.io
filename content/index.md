@@ -142,4 +142,4 @@ Finished blog posts:
 }
 </style>
 
-{{blog-preview:Quantization/Vector Quantization.md,ClassicML/KMeans Clustering.md}}
+{{blog-preview:BlogPosts/Latent_Representations.md,BlogPosts/KMeans_Clustering.md}}
