@@ -9,8 +9,6 @@ tags:
 sources: 1
 ---
 
-# Multi-Stream Audio Modeling
-
 The mechanism that makes [[Moshi]] **[[Full-Duplex Spoken Dialogue|full-duplex]]**: the model
 jointly models **two audio streams in parallel** — its own output and the user's input — as
 separate but simultaneously-modeled autoregressive token streams.

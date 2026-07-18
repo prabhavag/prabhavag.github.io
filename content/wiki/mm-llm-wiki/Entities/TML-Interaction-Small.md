@@ -10,8 +10,6 @@ tags:
 sources: 1
 ---
 
-# TML-Interaction-Small
-
 The interaction model released as a research preview by [[Thinking Machines Lab]]. Presented
 as the first model with **both** strong intelligence/instruction-following **and**
 interactivity.

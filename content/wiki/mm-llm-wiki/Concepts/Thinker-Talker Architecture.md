@@ -10,8 +10,6 @@ tags:
 sources: 1
 ---
 
-# Thinker-Talker Architecture
-
 The speech-generation design behind [[Qwen3-Omni]] (introduced in Qwen2.5-Omni): split an
 omni-modal model into a **Thinker** that generates **text** and a **Talker** that generates
 **streaming speech tokens**, run as one end-to-end model sharing conversational history.

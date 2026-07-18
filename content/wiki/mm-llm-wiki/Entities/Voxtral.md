@@ -13,8 +13,6 @@ tags:
 sources: 1
 ---
 
-# Voxtral
-
 A pair of **open-weights (Apache 2.0) multimodal audio-chat models** by [[Mistral AI]]
 (July 2025): **Voxtral Mini (4.7B)** and **Voxtral Small (24.3B)**. Voxtral takes **spoken
 audio and text in, and produces text out** — it *comprehends* audio (transcribe, translate,

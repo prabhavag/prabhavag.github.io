@@ -8,8 +8,6 @@ tags:
 sources: 1
 ---
 	
-# Time-Aligned Micro-Turns
-
 The core mechanism behind [[Interaction Models]]. Rather than processing a whole user turn
 then generating a whole response, both input and output are treated as **continuous streams**
 split into ~**200ms chunks** that are interleaved into a single token sequence

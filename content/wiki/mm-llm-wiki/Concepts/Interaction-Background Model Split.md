@@ -8,8 +8,6 @@ tags:
 sources: 1
 ---
 
-# Interaction-Background Model Split
-
 ### Figure — system overview (source Fig. 2)
 
 ![[fig2-system-overview.png]]

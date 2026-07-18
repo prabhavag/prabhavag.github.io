@@ -10,8 +10,6 @@ tags:
 sources: 1
 ---
 
-# Helium
-
 The **7B-parameter text language model** that serves as the reasoning/knowledge backbone of
 [[Moshi]]. Trained from scratch by [[Kyutai]] on **2.1T tokens** of filtered English.
 

@@ -11,8 +11,6 @@ tags:
 sources: 1
 ---
 
-# Moshi
-
 A **speech-text foundation model** and **[[Full-Duplex Spoken Dialogue|full-duplex]]** spoken
 dialogue system by [[Kyutai]] (Sept 2024). The first real-time full-duplex spoken LLM —
 theoretical latency **160 ms** (200 ms in practice), below the ~230 ms human conversational

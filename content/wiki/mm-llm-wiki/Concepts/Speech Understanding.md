@@ -9,8 +9,6 @@ tags:
 sources: 1
 ---
 
-# Speech Understanding
-
 The paradigm of **audio-in → text-out** multimodal LLMs: a model that *comprehends* spoken
 audio (transcribe, translate, answer questions about it, summarize, call functions) and
 responds in **text**. Distinct from the wiki's **full-duplex speech-to-speech** cluster

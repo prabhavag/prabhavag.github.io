@@ -9,8 +9,6 @@ tags:
 sources: 3
 ---
 
-# Real-Time Interactive Speech Models
-
 Overview/synthesis of the wiki's recurring theme: models that **interact in real time** rather
 than through a turn-based cascade. Three real-time sources so far ([[Moshi]],
 [[Interaction Models]], [[Qwen3-Omni]]), all rejecting the ASR → text-LLM → TTS pipeline in

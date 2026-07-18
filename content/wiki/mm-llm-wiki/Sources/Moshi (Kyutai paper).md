@@ -14,8 +14,6 @@ tags:
   - multimodal
 ---
 
-# Moshi: a speech-text foundation model for real-time dialogue
-
 **Source clip:** [[Moshi - a speech-text foundation model for real-time dialogue]] · [[Kyutai]] · arXiv 2410.00037 (Sept 2024)
 
 Technical report for **[[Moshi]]**, the first real-time **[[Full-Duplex Spoken Dialogue|full-duplex]]**

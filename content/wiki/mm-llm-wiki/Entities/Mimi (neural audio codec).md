@@ -11,8 +11,6 @@ tags:
 sources: 1
 ---
 
-# Mimi (neural audio codec)
-
 The **streaming neural audio codec** that tokenizes audio for [[Moshi]]. Mimi is the piece
 that makes real-time speech-to-speech possible: it turns 24 kHz waveforms into discrete tokens
 a language model can predict, and back, **causally** (low-latency, streaming).

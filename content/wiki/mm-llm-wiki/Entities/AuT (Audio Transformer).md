@@ -12,8 +12,6 @@ tags:
 sources: 1
 ---
 
-# AuT (Audio Transformer)
-
 The **audio encoder** of [[Qwen3-Omni]] — an attention-based **encoder–decoder,
 auto-regressive** model trained **from scratch on 20 million hours of supervised audio**. It
 replaces the Whisper encoder used in Qwen2.5-Omni (and in [[Voxtral]]) with a purpose-built,

@@ -8,8 +8,6 @@ tags:
 sources: 1
 ---
 
-# Encoder-Free Early Fusion
-
 The multimodal input/output design of [[TML-Interaction-Small]]. Rather than routing audio
 and video through large standalone encoders/decoders (e.g. a Whisper-like encoder or a
 separate TTS model), it uses **minimal preprocessing** with all components **co-trained from

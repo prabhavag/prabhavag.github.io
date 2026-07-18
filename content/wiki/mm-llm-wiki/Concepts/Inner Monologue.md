@@ -8,8 +8,6 @@ tags:
 sources: 1
 ---
 
-# Inner Monologue
-
 A training/inference technique from [[Moshi]]: the model predicts **time-aligned text tokens
 as a prefix to its audio tokens** at every step (text → semantic → acoustic). The text acts as
 "scaffolding" that lets a speech-to-speech model exploit the linguistic competence of its text

@@ -193,6 +193,9 @@ search. Suggest new questions and sources to pursue.
   signal that the page is worth creating.
 - **Frontmatter**: give wiki pages YAML frontmatter (`tags`, `created`, source counts, etc.)
   so the Obsidian Dataview plugin can query them.
+- **No duplicate title heading**: do not restate the page title as a `# <Title>` H1 at the
+  top of the body. Quartz renders the frontmatter `title` as the page heading, so an in-body
+  H1 makes the title appear twice. Start the body with the first real section or intro line.
 - **`index.md`** — content catalog. Every wiki page listed with a link, a one-line summary,
   and metadata, organized by category (entities, concepts, sources, topics). Read it first
   when answering; update it on every ingest.

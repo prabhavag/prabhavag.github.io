@@ -8,8 +8,6 @@ tags:
 sources: 1
 ---
 
-# RQ-Transformer
-
 The hierarchical, streaming architecture [[Moshi]] uses to model many interleaved token
 sub-streams per timestep. It factorizes generation into two Transformers:
 

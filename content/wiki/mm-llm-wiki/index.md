@@ -1,12 +1,10 @@
 ---
-title: "Multimodal LLM Wiki"
+title: "Audio LLM Wiki"
 type: index
 updated: 2026-07-11
 sources: 4
 pages: 24
 ---
-
-# Multimodal LLM Wiki
 
 Catalog of every wiki page. Read this first when answering a query, then drill into the
 relevant pages. Updated on every ingest.

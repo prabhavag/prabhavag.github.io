@@ -15,8 +15,6 @@ tags:
 sources: 1
 ---
 
-# Qwen3-Omni
-
 A natively **end-to-end omni-modal model** by [[Qwen Team]] (Sept 2025) that takes **text,
 image, audio, and video in** and produces **streaming text or speech out**. The flagship is
 **Qwen3-Omni-30B-A3B** (a Mixture-of-Experts model, 30B total / 3B active). Source:

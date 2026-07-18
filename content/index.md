@@ -149,5 +149,5 @@ Finished blog posts:
 Interlinked notes I build up as I read papers — entities, concepts, and source summaries,
 cross-referenced.
 
-- [Multimodal & real-time speech LLMs](wiki/mm-llm-wiki/) — Moshi, Voxtral, Qwen3-Omni, and
+- [Audio LLM Wiki](wiki/mm-llm-wiki/) — Moshi, Voxtral, Qwen3-Omni, and
   Thinking Machines' interaction models.

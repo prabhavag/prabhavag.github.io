@@ -9,8 +9,6 @@ tags:
 sources: 1
 ---
 
-# Audio-Text Pretraining Patterns
-
 The core pretraining design of [[Voxtral]] (Mistral, 2025): how to **introduce speech to a
 text LLM** from cheap `(audio, transcript)` data. An audio–text corpus is segmented (via VAD +
 diarization; transcripts ASR-**pseudo-labeled** when missing) into pairs

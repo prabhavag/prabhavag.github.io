@@ -13,8 +13,6 @@ tags:
   - real-time
 ---
 
-# Interaction Models: A Scalable Approach to Human-AI Collaboration
-
 **Source clip:** [[Interaction Models A Scalable Approach to Human-AI Collaboration]] · [[Thinking Machines Lab]] · published 2026-05-10
 
 Research-preview announcement of **[[Interaction Models]]** — models that handle interaction

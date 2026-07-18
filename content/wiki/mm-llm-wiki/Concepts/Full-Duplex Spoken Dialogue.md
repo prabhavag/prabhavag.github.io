@@ -9,8 +9,6 @@ tags:
 sources: 1
 ---
 
-# Full-Duplex Spoken Dialogue
-
 Spoken interaction in which the system can **listen and speak at the same time** — both parties
 hold open channels continuously, as in natural human conversation, rather than alternating in
 clean turns. The model "always listens and always generates sound" (speech or silence).

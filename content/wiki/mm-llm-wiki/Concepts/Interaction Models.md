@@ -9,8 +9,6 @@ tags:
 sources: 1
 ---
 
-# Interaction Models
-
 Models that **handle interaction natively** rather than through external scaffolding. Instead
 of consuming a complete user turn and emitting a complete response, an interaction model is
 in constant two-way exchange — perceiving and responding at the same time, across audio,

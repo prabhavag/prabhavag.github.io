@@ -9,8 +9,6 @@ tags:
 sources: 1
 ---
 
-# FD-bench
-
 A benchmark suite (one of the few) for measuring **interactivity**, used to evaluate
 [[TML-Interaction-Small]]. The model is given prerecorded audio and must respond at the
 correct times. Versions seen:

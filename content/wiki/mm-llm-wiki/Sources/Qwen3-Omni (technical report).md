@@ -14,8 +14,6 @@ tags:
 sources: 1
 ---
 
-# Qwen3-Omni (technical report)
-
 Technical report (arXiv [2509.17765](https://arxiv.org/pdf/2509.17765), Sept 2025) for
 **[[Qwen3-Omni]]**, [[Qwen Team]]'s natively end-to-end **omni-modal** model — text, image,
 audio, and video **in**, streaming text **or** speech **out**.
