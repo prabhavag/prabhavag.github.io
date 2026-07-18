@@ -27,7 +27,9 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    // "link" so a folder name navigates to its folder page — otherwise a section's own
+    // index.md (e.g. the wiki catalog) is unreachable from the sidebar. The chevron still collapses.
+    Component.DesktopOnly(Component.Explorer({ folderClickBehavior: "link" })),
   ],
   right: [
     Component.Graph(),
@@ -44,7 +46,9 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    // "link" so a folder name navigates to its folder page — otherwise a section's own
+    // index.md (e.g. the wiki catalog) is unreachable from the sidebar. The chevron still collapses.
+    Component.DesktopOnly(Component.Explorer({ folderClickBehavior: "link" })),
   ],
   right: [],
 }
