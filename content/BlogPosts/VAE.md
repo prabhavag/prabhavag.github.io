@@ -19,15 +19,21 @@ A standard autoencoder (AE) consists of two neural network modules:
 
 **Encoder**: Learns the parametrized function $f_\phi : \mathbb{R}^D \to \mathbb{R}^d$, which maps the high-dimensional input data to a low-dimensional latent representation:
 
-$$z = f_\phi(x)$$
+$$
+z = f_\phi(x)
+$$
 
 **Decoder**: Learns the parametrized function $g_\theta : \mathbb{R}^d \to \mathbb{R}^D$, which reconstructs the input from the latent code:
 
-$$\hat{x} = g_\theta(z)$$
+$$
+\hat{x} = g_\theta(z)
+$$
 
 The network is trained to minimize the reconstruction error, i.e., how close the reconstructed $\hat{x}$ is to the original $x$. A common choice of loss function is the Mean Squared Error (MSE):
 
-$$\mathcal{L}_{AE}(x, \hat{x}) = \mathbb{E}_{x \sim p_{data}(x)} \left\| x - g_\theta(f_\phi(x)) \right\|^2$$
+$$
+\mathcal{L}_{AE}(x, \hat{x}) = \mathbb{E}_{x \sim p_{data}(x)} \left\| x - g_\theta(f_\phi(x)) \right\|^2
+$$
 
 ![Autoencoder Architecture](../assets/autoencoder.png)
 
@@ -41,11 +47,15 @@ A variational encoder solves the above autoencoder issues, learns a meaningful l
 
 Let $p(x)$ represent the true data distribution, and we have samples $x^{(i)} \sim p(x)$. We would like to model $p_\theta(x)$ to approximate $p(x)$. Formally, we would like to solve:
 
-$$\theta^* = \arg\max_\theta \mathbb{E}_{x \sim p(x)}\left[\log p_\theta(x)\right]$$
+$$
+\theta^* = \arg\max_\theta \mathbb{E}_{x \sim p(x)}\left[\log p_\theta(x)\right]
+$$
 
 Since our underlying assumption that the data $x$ has been generated from a latent variable $z$, we express the data likelihood $\log p_\theta(x)$ as marginalization over all possible latent codes ([Luo, 2022](https://doi.org/10.48550/arXiv.2208.11970)):
 
-$$\log p_\theta(x) = \log \int p_\theta(x|z)\, p(z)\, dz$$
+$$
+\log p_\theta(x) = \log \int p_\theta(x|z)\, p(z)\, dz
+$$
 
 Computing the above integral is **intractable**, especially when $p_\theta(x|z)$ is a complex neural network, therefore we introduce an approximate posterior $q_\phi(z|x)$ (the encoder) and optimize the Evidence Lower Bound (ELBO).
 
@@ -58,11 +68,15 @@ $$
 
 By [Jensen's inequality](https://en.wikipedia.org/wiki/Jensen%27s_inequality) (since log is concave, $\log \mathbb{E}[X] \geq \mathbb{E}[\log X]$):
 
-$$\log p_\theta(x) \geq \mathbb{E}_{z \sim q_\phi(z|x)}\left[\log \frac{p_\theta(x|z)p(z)}{q_\phi(z|x)}\right] \quad \text{(ELBO)}$$
+$$
+\log p_\theta(x) \geq \mathbb{E}_{z \sim q_\phi(z|x)}\left[\log \frac{p_\theta(x|z)p(z)}{q_\phi(z|x)}\right] \quad \text{(ELBO)}
+$$
 
 Thus, we have:
 
-$$\log p_\theta(x) \geq \text{ELBO}$$
+$$
+\log p_\theta(x) \geq \text{ELBO}
+$$
 
 The above derivation of ELBO shows that it's a lower bound on the likelihood, but it doesn't give insight on the tightness of bound, and why maximizing it will maximize likelihood $\log p_\theta(x)$. That's where an alternate derivation is more helpful.
 
@@ -132,7 +146,9 @@ The key challenge is that we cannot simply move the gradient inside the expectat
 
 The key idea is to express the random variable $z \sim q_\phi(z|x)$ as a differentiable (and invertible) transformation of another random variable $\epsilon$:
 
-$$z = g(\epsilon, \phi, x)$$
+$$
+z = g(\epsilon, \phi, x)
+$$
 
 where the distribution of $\epsilon$ is independent of $x$ or $\phi$.
 
@@ -159,13 +175,17 @@ In practice, we assume a Gaussian approximate posterior $q_\phi(z|x) = \mathcal{
 
 The reparameterization of $z$ is:
 
-$$z = \mu_\phi(x) + \sigma_\phi(x) \odot \epsilon, \quad \epsilon \sim \mathcal{N}(0, I)$$
+$$
+z = \mu_\phi(x) + \sigma_\phi(x) \odot \epsilon, \quad \epsilon \sim \mathcal{N}(0, I)
+$$
 
 where $\mu_\phi(x)$ and $\sigma_\phi(x)$ are predicted from the encoder.
 
 Recall that the ELBO is:
 
-$$\mathcal{L}_{\theta,\phi}(x) = \mathbb{E}_{q_\phi(z|x)}\left[\log p_\theta(x|z)\right] - D_{KL}(q_\phi(z|x)\, \|\, p(z))$$
+$$
+\mathcal{L}_{\theta,\phi}(x) = \mathbb{E}_{q_\phi(z|x)}\left[\log p_\theta(x|z)\right] - D_{KL}(q_\phi(z|x)\, \|\, p(z))
+$$
 
 For this scenario, the KL divergence has a closed-form solution:
 
@@ -178,13 +198,17 @@ $$
 
 The reconstruction term depends on the data likelihood. For continuous data, we often use:
 
-$$\mathbb{E}_{q_\phi(z|x)}\left[\log p_\theta(x|z)\right] \approx -\|x - \hat{x}\|_2^2$$
+$$
+\mathbb{E}_{q_\phi(z|x)}\left[\log p_\theta(x|z)\right] \approx -\|x - \hat{x}\|_2^2
+$$
 
 where $\hat{x} = g_\theta(z)$ is the decoder output.
 
 **Training Loss:** The final VAE training loss for a single datapoint is:
 
-$$\mathcal{L}_{VAE}(x) = \|x - g_\theta(z)\|_2^2 + \frac{1}{2}\sum_{j=1}^{d}\left(\mu_j^2 + \sigma_j^2 - \log(\sigma_j^2) - 1\right)$$
+$$
+\mathcal{L}_{VAE}(x) = \|x - g_\theta(z)\|_2^2 + \frac{1}{2}\sum_{j=1}^{d}\left(\mu_j^2 + \sigma_j^2 - \log(\sigma_j^2) - 1\right)
+$$
 
 ![VAE Architecture](../assets/vae.png)
 
