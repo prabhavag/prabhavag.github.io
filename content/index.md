@@ -143,3 +143,11 @@ Finished blog posts:
 </style>
 
 {{blog-preview:BlogPosts/VAE.md,BlogPosts/KMeans_Clustering.md}}
+
+## Research wikis
+
+Interlinked notes I build up as I read papers — entities, concepts, and source summaries,
+cross-referenced.
+
+- [Multimodal & real-time speech LLMs](wiki/mm-llm-wiki/) — Moshi, Voxtral, Qwen3-Omni, and
+  Thinking Machines' interaction models.

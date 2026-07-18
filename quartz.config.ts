@@ -16,8 +16,18 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "prabhavag.github.io",
+    ignorePatterns: [
+      "private",
+      "templates",
+      ".obsidian",
+      // wiki vaults: publish the synthesized layer only. `raw/*.md` (not `raw/**`) so the
+      // figures in `raw/assets/` that wiki pages embed still get emitted.
+      "**/raw/*.md",
+      "**/Clippings/**",
+      "**/log.md",
+      "**/CLAUDE.md",
+    ],
     defaultDateType: "created",
     generateSocialImages: false,
     theme: {
