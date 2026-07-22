@@ -29,7 +29,7 @@ const config: QuartzConfig = {
       "**/CLAUDE.md",
     ],
     defaultDateType: "created",
-    generateSocialImages: false,
+    generateSocialImages: true,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
